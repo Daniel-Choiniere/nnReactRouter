@@ -22,3 +22,5 @@ class Post extends Component {
 }
 
 export default Post;
+
+// adding some comment to make a test
