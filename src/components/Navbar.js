@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, withRouter } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = (props) => {
+    setTimeout(() => {
+        props.history.push('/about')
+    }, 3000)
     return (
         // use Link tags instead of HREF to use REACT to grab components to prevent page from having to reload
         // when we use the NavLink tag you will get the "active parameter"
@@ -18,4 +21,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default withRouter(Navbar);
