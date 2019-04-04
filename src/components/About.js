@@ -1,4 +1,5 @@
 import React from 'react'
+import Rainbow from '../hoc/rainbow'
 
 const About = () => {
     return (
@@ -9,4 +10,5 @@ const About = () => {
         );
 };
 
-export default About;
+// wrap the About component in the Rainbow higher order component (HOC) so that functionality/style is applied to it
+export default Rainbow(About);
