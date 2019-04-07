@@ -1,11 +1,8 @@
 import React from 'react'
 
+// the router adds information to the props parameter
 // adding the props parameter you get access to a lot of methods and properties of the user action performed usign react-router
 const Contact = (props) => {
-    // setTimeout(() => {
-    //     //  below is a progrmmatic redirect. waits three seconds than redirects to the about component
-    //     props.history.push('/about');
-    // }, 3000);
     return (
         <div className="container">
             <h4 className="center">Contact</h4>

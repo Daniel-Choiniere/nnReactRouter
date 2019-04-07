@@ -10,7 +10,7 @@ const Rainbow = (WrappedComponent) => {
             <div className={className}>
                 <WrappedComponent {...props}/>
             </div>
-            );
+        );
     };
 };
 

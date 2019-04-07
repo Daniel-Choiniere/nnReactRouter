@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
 
 class Home extends Component {
     state = {
@@ -13,7 +13,7 @@ class Home extends Component {
         axios.get('https://jsonplaceholder.typicode.com/posts')
         .then(res => {
             // need to grab the data we retrieved and save it to our template
-            console.log(res);
+            // console.log(res);
             this.setState({
                 posts: res.data.slice(0, 10)
             });
@@ -37,7 +37,7 @@ class Home extends Component {
             })
             ) : (
                 <div className="center">No Posts Yet!</div>
-                )
+                );
         
         return (
             <div className="container">
