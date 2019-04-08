@@ -1,29 +1,14 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Pokeball from '../pokeball.png';
+import { connect } from 'react-redux';
 
 class Home extends Component {
-    state = {
-        posts: [ ]
-    }
-    // needs to be a class based component, functional components can not use life cycle hooks
-    // a good place to go out and get external data is in a life cycle hook
-    // use this lifecycle hook to go out and grab data once the component has been mounted to the DOM
-    componentDidMount() {
-        // this function is asynchronous, so it returns a promise (action that will fire once the 'get' has completed)
-        axios.get('https://jsonplaceholder.typicode.com/posts')
-        .then(res => {
-            // need to grab the data we retrieved and save it to our template
-            // console.log(res);
-            this.setState({
-                posts: res.data.slice(0, 10)
-            });
-        });
-    }
     render() {
+        console.log(this.props);
+        
         // using destructuring to get the posts property from the state
-        const { posts } = this.state;
+        const { posts } = this.props;
         const postList = posts.length ? (
             // cycle through the posts and
             posts.map(post => {
@@ -53,4 +38,12 @@ class Home extends Component {
     }
 }
 
-export default Home;
+const mapStatetoProps = (state) => {
+    return {
+        posts: state.posts
+    };
+};
+
+// connect the Home componenet to the Redux store
+// when we connect to Redux, it knows what data we want to grab from Redux and the property we want to create in our prop object (i.e posts)
+export default connect(mapStatetoProps)(Home);
